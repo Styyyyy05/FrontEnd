@@ -1,7 +1,7 @@
 //import Auth from '@/layouts/Auth.vue'
 import Main from '@/layouts/Main.vue'
 //import { useAuthStore } from '@/stores/auth'
-//import Dashboard from '@/views/Dashboard.vue'
+import Dashboard from '@/views/Dashboard.vue'
 //import Development from '@/views/development/Development.vue'
 //import DevelopmentCreate from '@/views/development/DevelopmentCreate.vue'
 //import DevelopmentEdit from '@/views/development/DevelopmentEdit.vue'
@@ -25,7 +25,7 @@ import Main from '@/layouts/Main.vue'
 //import SocialAssistanceCreate from '@/views/social-assistance/SocialAssistanceCreate.vue'
 //import SocialAssistanceEdit from '@/views/social-assistance/SocialAssistanceEdit.vue'
 //import SocialAssistances from '@/views/social-assistance/SocialAssistances.vue'
-//import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

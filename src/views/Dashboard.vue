@@ -4,28 +4,28 @@ import { storeToRefs } from 'pinia'
 import { onMounted, watch } from 'vue'
 import { Chart } from 'chart.js/auto'
 import { useAuthStore } from '@/stores/auth'
-import { useFamilyMemberStore } from '@/stores/familyMember'
-import { useSocialAssistanceRecipientStore } from '@/stores/socialAssistanceRecipient'
+//import { useFamilyMemberStore } from '@/stores/familyMember'
+//import { useSocialAssistanceRecipientStore } from '@/stores/socialAssistanceRecipient'
 import { formatRupiah, formatToClientTimezone } from '@/helpers/format'
-import { useEventParticipantStore } from '@/stores/eventParticipant'
+//import { useEventParticipantStore } from '@/stores/eventParticipant'
 
 const dashboardStore = useDashboardStore()
 const { dashboardData, loading } = storeToRefs(dashboardStore)
 const { fetchDashboardData } = dashboardStore
 
-const familyMemberStore = useFamilyMemberStore()
-const { familyMembers, loading: loadingFamilyMember } = storeToRefs(familyMemberStore)
-const { fetchFamilyMembers } = familyMemberStore
-
-const socialAssistanceRecipientStore = useSocialAssistanceRecipientStore()
-const { socialAssistanceRecipients, loading: loadingSocialAssistanceRecipient } = storeToRefs(
-  socialAssistanceRecipientStore,
-)
-const { fetchSocialAssistanceRecipients } = socialAssistanceRecipientStore
-
-const eventParticipantStore = useEventParticipantStore()
-const { eventParticipants, loading: loadingEventParticipant } = storeToRefs(eventParticipantStore)
-const { fetchEventParticipants } = eventParticipantStore
+//const familyMemberStore = useFamilyMemberStore()
+//const { familyMembers, loading: loadingFamilyMember } = storeToRefs(familyMemberStore)
+//const { fetchFamilyMembers } = familyMemberStore
+//
+//const socialAssistanceRecipientStore = useSocialAssistanceRecipientStore()
+//const { socialAssistanceRecipients, loading: loadingSocialAssistanceRecipient } = storeToRefs(
+//  socialAssistanceRecipientStore,
+//)
+//const { fetchSocialAssistanceRecipients } = socialAssistanceRecipientStore
+//
+//const eventParticipantStore = useEventParticipantStore()
+//const { eventParticipants, loading: loadingEventParticipant } = storeToRefs(eventParticipantStore)
+//const { fetchEventParticipants } = eventParticipantStore
 
 const authStore = useAuthStore()
 const { user } = storeToRefs(authStore)
