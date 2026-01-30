@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 
 const token = Cookies.get('token')
 
-axios.defaults.baseURL = 'http://localhost:800/api' //import.meta.env.VITE_API_BASE_URL
+axios.defaults.baseURL = 'http://localhost:8000/api' //import.meta.env.VITE_API_BASE_URL
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers.common['Content-Type'] = 'multipart/form-data'
 axios.defaults.headers.common['Accept'] = 'application/json'

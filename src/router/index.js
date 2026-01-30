@@ -1,6 +1,6 @@
-//import Auth from '@/layouts/Auth.vue'
+import Auth from '@/layouts/Auth.vue'
 import Main from '@/layouts/Main.vue'
-//import { useAuthStore } from '@/stores/auth'
+import { useAuthStore } from '@/stores/auth'
 import Dashboard from '@/views/Dashboard.vue'
 //import Development from '@/views/development/Development.vue'
 //import DevelopmentCreate from '@/views/development/DevelopmentCreate.vue'
@@ -16,7 +16,7 @@ import Dashboard from '@/views/Dashboard.vue'
 //import HeadOfFamilies from '@/views/head-of-family/HeadOfFamilies.vue'
 //import HeadOfFamily from '@/views/head-of-family/HeadOfFamily.vue'
 //import HeadOfFamilyCreate from '@/views/head-of-family/HeadOfFamilyCreate.vue'
-//import Login from '@/views/Login.vue'
+import Login from '@/views/Login.vue'
 //import Profile from '@/views/profile/Profile.vue'
 //import ProfileCreate from '@/views/profile/ProfileCreate.vue'
 //import SocialAssistanceRecipient from '@/views/social-assistance-recipient/SocialAssistanceRecipient.vue'
@@ -38,7 +38,7 @@ const router = createRouter({
           path: '',
           name: 'dashboard',
           component: Dashboard,
-          //meta: { requiresAuth: true, permission: 'dashboard-menu' },
+          meta: { requiresAuth: true, permission: 'dashboard-menu' },
         },
         //        {
         //          path: 'family-member',
@@ -174,50 +174,50 @@ const router = createRouter({
         //        },
       ],
     },
-    //    {
-    //      path: '/login',
-    //      component: Auth,
-    //      children: [
-    //        {
-    //          path: '',
-    //          name: 'login',
-    //          component: Login,
-    //          meta: { requiresUnauth: true },
-    //        },
-    //      ],
-    //    },
+    {
+      path: '/login',
+      component: Auth,
+      children: [
+        {
+          path: '',
+          name: 'login',
+          component: Login,
+          meta: { requiresUnauth: true },
+        },
+      ],
+    },
   ],
 })
 
-//router.beforeEach(async (to, from, next) => {
-//  const authStore = useAuthStore()
-//
-//  if (to.meta.requiresAuth) {
-//    if (authStore.token) {
-//      try {
-//        if (!authStore.user) {
-//          await authStore.checkAuth()
-//        }
-//
-//        const userPermissions = authStore.user?.permissions || []
-//
-//        if (to.meta.permission && !userPermissions.includes(to.meta.permission)) {
-//          next({ name: 'Error 403' })
-//          return
-//        }
-//
-//        next()
-//      } catch (error) {
-//        next({ name: 'login' })
-//      }
-//    } else {
-//      next({ name: 'login' })
-//    }
-//  } else if (to.meta.requiresUnauth && authStore.token) {
-//    next({ name: 'dashboard' })
-//  } else {
-//    next()
-//  }
-//})
+router.beforeEach(async (to, from, next) => {
+  const authStore = useAuthStore()
+
+  if (to.meta.requiresAuth) {
+    if (authStore.token) {
+      try {
+        if (!authStore.user) {
+          await authStore.checkAuth()
+        }
+
+        const userPermissions = authStore.user?.permissions || []
+
+        if (to.meta.permission && !userPermissions.includes(to.meta.permission)) {
+          next({ name: 'Error 403' })
+          return
+        }
+
+        next()
+      } catch (error) {
+        next({ name: 'login' })
+      }
+    } else {
+      next({ name: 'login' })
+    }
+  } else if (to.meta.requiresUnauth && authStore.token) {
+    next({ name: 'dashboard' })
+  } else {
+    next()
+  }
+})
 
 export default router

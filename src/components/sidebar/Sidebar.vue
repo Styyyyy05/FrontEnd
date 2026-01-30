@@ -98,7 +98,7 @@ const sidebarItems = [
         </div>
         <div class="flex flex-col flex-1 gap-6 overflow-y-scroll hide-scrollbar">
           <nav class="flex flex-col gap-2 pb-12">
-            <p class="font-medium text-sm text-desa-secondary">Main Menu</p>
+            <p class="font-medium text-sm text-desa-secondary">Dashboard</p>
             <ul class="flex flex-col gap-2">
               <SidebarItem v-for="(item, index) in sidebarItems" :key="index" :item="item" />
             </ul>

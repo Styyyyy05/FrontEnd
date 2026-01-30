@@ -1,11 +1,10 @@
 <script setup>
-//import { useAuthStore } from '@/stores/auth';
-//import { storeToRefs } from 'pinia';
-//
-//const authStore = useAuthStore();
-//const { user } = storeToRefs(authStore);
-//const { logout } = authStore
-//
+import { useAuthStore } from '@/stores/auth'
+import { storeToRefs } from 'pinia'
+
+const authStore = useAuthStore()
+const { user } = storeToRefs(authStore)
+const { logout } = authStore
 </script>
 
 <template>

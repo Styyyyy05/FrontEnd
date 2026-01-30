@@ -81,9 +81,9 @@ watch(
     }
 
     if (newUser?.role === 'head-of-family') {
-      fetchFamilyMembers()
-      fetchSocialAssistanceRecipients()
-      fetchEventParticipants()
+      //fetchFamilyMembers()
+      //fetchSocialAssistanceRecipients()
+      //fetchEventParticipants()
     }
   },
   { immediate: true },
