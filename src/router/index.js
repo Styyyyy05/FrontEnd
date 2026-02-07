@@ -13,7 +13,7 @@ import Dashboard from '@/views/Dashboard.vue'
 //import FamilyMember from '@/views/family-member/FamilyMember.vue'
 //import FamilyMemberCreate from '@/views/family-member/FamilyMemberCreate.vue'
 //import FamilyMembers from '@/views/family-member/FamilyMembers.vue'
-//import HeadOfFamilies from '@/views/head-of-family/HeadOfFamilies.vue'
+import HeadOfFamilies from '@/views/head-of-family/HeadOfFamilies.vue'
 //import HeadOfFamily from '@/views/head-of-family/HeadOfFamily.vue'
 //import HeadOfFamilyCreate from '@/views/head-of-family/HeadOfFamilyCreate.vue'
 import Login from '@/views/Login.vue'
@@ -58,12 +58,12 @@ const router = createRouter({
         //          component: FamilyMemberCreate,
         //          meta: { requiresAuth: true, permission: 'family-member-create' },
         //        },
-        //        {
-        //          path: 'head-of-family',
-        //          name: 'head-of-family',
-        //          component: HeadOfFamilies,
-        //          meta: { requiresAuth: true, permission: 'head-of-family-list' },
-        //        },
+        {
+          path: 'head-of-family',
+          name: 'head-of-family',
+          component: HeadOfFamilies,
+          meta: { requiresAuth: true, permission: 'head-of-family-list' },
+        },
         //        {
         //          path: 'head-of-family/:id',
         //          name: 'manage-head-of-family',
