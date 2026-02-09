@@ -14,8 +14,8 @@ import Dashboard from '@/views/Dashboard.vue'
 //import FamilyMemberCreate from '@/views/family-member/FamilyMemberCreate.vue'
 //import FamilyMembers from '@/views/family-member/FamilyMembers.vue'
 import HeadOfFamilies from '@/views/head-of-family/HeadOfFamilies.vue'
-//import HeadOfFamily from '@/views/head-of-family/HeadOfFamily.vue'
-//import HeadOfFamilyCreate from '@/views/head-of-family/HeadOfFamilyCreate.vue'
+import HeadOfFamily from '@/views/head-of-family/HeadOfFamily.vue'
+import HeadOfFamilyCreate from '@/views/head-of-family/HeadOfFamilyCreate.vue'
 import Login from '@/views/Login.vue'
 //import Profile from '@/views/profile/Profile.vue'
 //import ProfileCreate from '@/views/profile/ProfileCreate.vue'
@@ -64,18 +64,18 @@ const router = createRouter({
           component: HeadOfFamilies,
           meta: { requiresAuth: true, permission: 'head-of-family-list' },
         },
-        //        {
-        //          path: 'head-of-family/:id',
-        //          name: 'manage-head-of-family',
-        //          component: HeadOfFamily,
-        //          meta: { requiresAuth: true, permission: 'head-of-family-list' },
-        //        },
-        //        {
-        //          path: 'head-of-family/create',
-        //          name: 'create-head-of-family',
-        //          component: HeadOfFamilyCreate,
-        //          meta: { requiresAuth: true, permission: 'head-of-family-create' },
-        //        },
+        {
+          path: 'head-of-family/:id',
+          name: 'manage-head-of-family',
+          component: HeadOfFamily,
+          meta: { requiresAuth: true, permission: 'head-of-family-list' },
+        },
+                {
+                  path: 'head-of-family/create',
+                  name: 'create-head-of-family',
+                  component: HeadOfFamilyCreate,
+                  meta: { requiresAuth: true, permission: 'head-of-family-create' },
+                },
         //        {
         //          path: 'social-assistance',
         //          name: 'social-assistance',
