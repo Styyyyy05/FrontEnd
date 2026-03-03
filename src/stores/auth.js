@@ -10,19 +10,19 @@ export const useAuthStore = defineStore('auth', {
     loading: false,
     error: null,
     success: null,
+    token: Cookies.get('token') || null,
   }),
-  getters: {
-    token: (state) => Cookies.get('token'),
-  },
   actions: {
     async login(credentials) {
       this.loading = true
+      this.error = null
       try {
         const response = await axiosInstance.post('/login', credentials)
         const token = response.data.token
         Cookies.set('token', token)
+        this.token = token
         this.success = 'Login successful'
-        router.push({ name: 'dashboard' })
+        await router.push({ name: 'dashboard' })
       } catch (error) {
         this.error = handleError(error)
       } finally {
@@ -36,6 +36,7 @@ export const useAuthStore = defineStore('auth', {
         await axiosInstance.post('/logout')
 
         Cookies.remove('token')
+        this.token = null
 
         router.push({ name: 'login' })
 
@@ -58,6 +59,7 @@ export const useAuthStore = defineStore('auth', {
       } catch (error) {
         if (error.response && error.response.status === 401) {
           Cookies.remove('token')
+          this.token = null
           router.push({ name: 'login' })
         }
       }
