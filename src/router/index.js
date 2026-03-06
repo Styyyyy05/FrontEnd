@@ -2,14 +2,14 @@ import Auth from '@/layouts/Auth.vue'
 import Main from '@/layouts/Main.vue'
 import { useAuthStore } from '@/stores/auth'
 import Dashboard from '@/views/Dashboard.vue'
-//import Development from '@/views/development/Development.vue'
-//import DevelopmentCreate from '@/views/development/DevelopmentCreate.vue'
-//import DevelopmentEdit from '@/views/development/DevelopmentEdit.vue'
-//import Developments from '@/views/development/Developments.vue'
-//import Event from '@/views/event/Event.vue'
-//import EventCreate from '@/views/event/EventCreate.vue'
-//import EventEdit from '@/views/event/EventEdit.vue'
-//import Events from '@/views/event/Events.vue'
+import Development from '@/views/development/Development.vue'
+import DevelopmentCreate from '@/views/development/DevelopmentCreate.vue'
+import DevelopmentEdit from '@/views/development/DevelopmentEdit.vue'
+import Developments from '@/views/development/Developments.vue'
+import Event from '@/views/event/Event.vue'
+import EventCreate from '@/views/event/EventCreate.vue'
+import EventEdit from '@/views/event/EventEdit.vue'
+import Events from '@/views/event/Events.vue'
 //import FamilyMember from '@/views/family-member/FamilyMember.vue'
 //import FamilyMemberCreate from '@/views/family-member/FamilyMemberCreate.vue'
 //import FamilyMembers from '@/views/family-member/FamilyMembers.vue'
@@ -112,54 +112,54 @@ const router = createRouter({
                   component: SocialAssistanceRecipient,
                   meta: { requiresAuth: true, permission: 'social-assistance-recipient-list' },
                 },
-        //        {
-        //          path: 'development',
-        //          name: 'development',
-        //          component: Developments,
-        //          meta: { requiresAuth: true, permission: 'development-list' },
-        //        },
-        //        {
-        //          path: 'development/:id',
-        //          name: 'manage-development',
-        //          component: Development,
-        //          meta: { requiresAuth: true, permission: 'development-list' },
-        //        },
-        //        {
-        //          path: 'development/edit/:id',
-        //          name: 'edit-development',
-        //          component: DevelopmentEdit,
-        //          meta: { requiresAuth: true, permission: 'development-edit' },
-        //        },
-        //        {
-        //          path: 'development/create',
-        //          name: 'create-development',
-        //          component: DevelopmentCreate,
-        //          meta: { requiresAuth: true, permission: 'development-create' },
-        //        },
-        //        {
-        //          path: 'event',
-        //          name: 'event',
-        //          component: Events,
-        //          meta: { requiresAuth: true, permission: 'event-list' },
-        //        },
-        //        {
-        //          path: 'event/:id',
-        //          name: 'manage-event',
-        //          component: Event,
-        //          meta: { requiresAuth: true, permission: 'event-list' },
-        //        },
-        //        {
-        //          path: 'event/edit/:id',
-        //          name: 'edit-event',
-        //          component: EventEdit,
-        //          meta: { requiresAuth: true, permission: 'event-edit' },
-        //        },
-        //        {
-        //          path: 'event/create',
-        //          name: 'create-event',
-        //          component: EventCreate,
-        //          meta: { requiresAuth: true, permission: 'event-create' },
-        //        },
+                {
+                  path: 'development',
+                  name: 'development',
+                  component: Developments,
+                  meta: { requiresAuth: true, permission: 'development-list' },
+                },
+                {
+                  path: 'development/:id',
+                  name: 'manage-development',
+                  component: Development,
+                  meta: { requiresAuth: true, permission: 'development-list' },
+                },
+                {
+                  path: 'development/edit/:id',
+                  name: 'edit-development',
+                  component: DevelopmentEdit,
+                  meta: { requiresAuth: true, permission: 'development-edit' },
+                },
+                {
+                  path: 'development/create',
+                  name: 'create-development',
+                  component: DevelopmentCreate,
+                  meta: { requiresAuth: true, permission: 'development-create' },
+                },
+                {
+                  path: 'event',
+                  name: 'event',
+                  component: Events,
+                  meta: { requiresAuth: true, permission: 'event-list' },
+                },
+                {
+                  path: 'event/:id',
+                  name: 'manage-event',
+                  component: Event,
+                  meta: { requiresAuth: true, permission: 'event-list' },
+                },
+                {
+                  path: 'event/edit/:id',
+                  name: 'edit-event',
+                  component: EventEdit,
+                  meta: { requiresAuth: true, permission: 'event-edit' },
+                },
+                {
+                  path: 'event/create',
+                  name: 'create-event',
+                  component: EventCreate,
+                  meta: { requiresAuth: true, permission: 'event-create' },
+                },
         //        {
         //          path: 'profile',
         //          name: 'profile',
