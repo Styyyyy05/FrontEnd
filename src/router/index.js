@@ -19,12 +19,12 @@ import HeadOfFamilyCreate from '@/views/head-of-family/HeadOfFamilyCreate.vue'
 import Login from '@/views/Login.vue'
 //import Profile from '@/views/profile/Profile.vue'
 //import ProfileCreate from '@/views/profile/ProfileCreate.vue'
-//import SocialAssistanceRecipient from '@/views/social-assistance-recipient/SocialAssistanceRecipient.vue'
-//import SocialAssistanceRecipients from '@/views/social-assistance-recipient/SocialAssistanceRecipients.vue'
-//import SocialAssistance from '@/views/social-assistance/SocialAssistance.vue'
-//import SocialAssistanceCreate from '@/views/social-assistance/SocialAssistanceCreate.vue'
-//import SocialAssistanceEdit from '@/views/social-assistance/SocialAssistanceEdit.vue'
-//import SocialAssistances from '@/views/social-assistance/SocialAssistances.vue'
+import SocialAssistanceRecipient from '@/views/social-assistance-recipient/SocialAssistanceRecipient.vue'
+import SocialAssistanceRecipients from '@/views/social-assistance-recipient/SocialAssistanceRecipients.vue'
+import SocialAssistance from '@/views/social-assistance/SocialAssistance.vue'
+import SocialAssistanceCreate from '@/views/social-assistance/SocialAssistanceCreate.vue'
+import SocialAssistanceEdit from '@/views/social-assistance/SocialAssistanceEdit.vue'
+import SocialAssistances from '@/views/social-assistance/SocialAssistances.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -76,42 +76,42 @@ const router = createRouter({
                   component: HeadOfFamilyCreate,
                   meta: { requiresAuth: true, permission: 'head-of-family-create' },
                 },
-        //        {
-        //          path: 'social-assistance',
-        //          name: 'social-assistance',
-        //          component: SocialAssistances,
-        //          meta: { requiresAuth: true, permission: 'social-assistance-list' },
-        //        },
-        //        {
-        //          path: 'social-assistance/:id',
-        //          name: 'manage-social-assistance',
-        //          component: SocialAssistance,
-        //          meta: { requiresAuth: true, permission: 'social-assistance-list' },
-        //        },
-        //        {
-        //          path: 'social-assistance/edit/:id',
-        //          name: 'edit-social-assistance',
-        //          component: SocialAssistanceEdit,
-        //          meta: { requiresAuth: true, permission: 'social-assistance-edit' },
-        //        },
-        //        {
-        //          path: 'social-assistance/create',
-        //          name: 'create-social-assistance',
-        //          component: SocialAssistanceCreate,
-        //          meta: { requiresAuth: true, permission: 'social-assistance-create' },
-        //        },
-        //        {
-        //          path: 'social-assistance-recipient',
-        //          name: 'social-assistance-recipient',
-        //          component: SocialAssistanceRecipients,
-        //          meta: { requiresAuth: true, permission: 'social-assistance-recipient-list' },
-        //        },
-        //        {
-        //          path: 'social-assistance-recipient/:id',
-        //          name: 'manage-social-assistance-recipient',
-        //          component: SocialAssistanceRecipient,
-        //          meta: { requiresAuth: true, permission: 'social-assistance-recipient-list' },
-        //        },
+                {
+                  path: 'social-assistance',
+                  name: 'social-assistance',
+                  component: SocialAssistances,
+                  meta: { requiresAuth: true, permission: 'social-assistance-list' },
+                },
+                {
+                  path: 'social-assistance/:id',
+                  name: 'manage-social-assistance',
+                  component: SocialAssistance,
+                  meta: { requiresAuth: true, permission: 'social-assistance-list' },
+                },
+                {
+                  path: 'social-assistance/edit/:id',
+                  name: 'edit-social-assistance',
+                  component: SocialAssistanceEdit,
+                  meta: { requiresAuth: true, permission: 'social-assistance-edit' },
+                },
+                {
+                  path: 'social-assistance/create',
+                  name: 'create-social-assistance',
+                  component: SocialAssistanceCreate,
+                  meta: { requiresAuth: true, permission: 'social-assistance-create' },
+                },
+                {
+                  path: 'social-assistance-recipient',
+                  name: 'social-assistance-recipient',
+                  component: SocialAssistanceRecipients,
+                  meta: { requiresAuth: true, permission: 'social-assistance-recipient-list' },
+                },
+                {
+                  path: 'social-assistance-recipient/:id',
+                  name: 'manage-social-assistance-recipient',
+                  component: SocialAssistanceRecipient,
+                  meta: { requiresAuth: true, permission: 'social-assistance-recipient-list' },
+                },
         //        {
         //          path: 'development',
         //          name: 'development',
