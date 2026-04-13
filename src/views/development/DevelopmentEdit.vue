@@ -129,7 +129,7 @@ onMounted(fetchData)
                             class="flex size-[18px] shrink-0 accent-desa-secondary checked:accent-desa-dark-green transition-setup">
                         <span
                             class="font-medium leading-5 text-desa-secondary w-full group-has-[:checked]:text-desa-dark-green transition-setup">
-                            Dalam Pengerjaan
+                            On Going
                         </span>
                         <div class="flex size-6 shrink-0">
                             <img src="@/assets/images/icons/tick-circle-secondary-green.svg"
@@ -144,7 +144,7 @@ onMounted(fetchData)
                             class="flex size-[18px] shrink-0 accent-desa-secondary checked:accent-desa-dark-green transition-setup">
                         <span
                             class="font-medium leading-5 text-desa-secondary w-full group-has-[:checked]:text-desa-dark-green transition-setup">
-                            Selesai
+                            Completed
                         </span>
                         <div class="flex size-6 shrink-0">
                             <img src="@/assets/images/icons/close-circle-secondary-green.svg"

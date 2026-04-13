@@ -329,7 +329,7 @@ onMounted(fetchData)
                                 akan muncul jika status pengajuan sudah berhasil 😉</p>
                         </div>
                         <img :src="socialAssistanceRecipient.proof" alt="image"
-                            class="bukti-menerima-bansos absolute left-0 top-0 w-full h-full object-cover"
+                            class="bukti-menerima-bansos class="max-w-full h-auto
                             v-if="socialAssistanceRecipient.proof" />
                     </div>
                 </section>

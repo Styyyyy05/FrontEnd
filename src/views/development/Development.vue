@@ -6,7 +6,7 @@ import router from '@/router';
 import { useAuthStore } from '@/stores/auth';
 import { useDevelopmentStore } from '@/stores/development';
 import { useDevelopmentApplicantStore } from '@/stores/developmentApplicant';
-//import { useFamilyMemberStore } from '@/stores/familyMember';
+import { useFamilyMemberStore } from '@/stores/familyMember';
 import { storeToRefs } from 'pinia';
 import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
@@ -29,9 +29,9 @@ const { fetchDevelopment, deleteDevelopment } = developmentStore
 const developmentApplicantStore = useDevelopmentApplicantStore()
 const { createDevelopmentApplicant } = developmentApplicantStore
 
-//const familyMemberStore = useFamilyMemberStore()
-//const { familyMembers } = storeToRefs(familyMemberStore)
-//const { fetchFamilyMembers } = familyMemberStore
+const familyMemberStore = useFamilyMemberStore()
+const { familyMembers } = storeToRefs(familyMemberStore)
+const { fetchFamilyMembers } = familyMemberStore
 
 const authStore = useAuthStore()
 const { user } = storeToRefs(authStore)

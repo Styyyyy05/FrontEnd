@@ -31,9 +31,9 @@ const handleSubmit = async () => {
 
 <template>
   <form
-    @submit.prevent="handleSubmit"
-    class="flex items-center flex-1 pl-[calc(((100%-1280px)/2)+75px)]"
-  >
+  @submit.prevent="handleSubmit"
+  class="fixed inset-0 flex items-center justify-center bg-gray-100"
+>
     <div class="flex flex-col h-fit w-[486px] shrink-0 rounded-3xl p-[32px] gap-[32px] bg-white">
       <header class="flex flex-col gap-[32px] items-center">
         <img
@@ -138,15 +138,4 @@ const handleSubmit = async () => {
       <Button type="submit" label="Masuk" :loading="loading" />
     </div>
   </form>
-  <section id="Banner" class="relative flex w-full max-w-[634px]">
-    <div class="fixed top-0 h-screen w-full max-w-[634px] overflow-hidden pr-3 py-3">
-      <div class="h-full w-[622px] rounded-3xl gradient-vertical pt-[59px] pb-[60px]">
-        <img
-          src="@/assets/images/backgrounds/bg-signin.png"
-          class="h-full w-[542px] object-contain mx-auto"
-          alt="banner"
-        />
-      </div>
-    </div>
-  </section>
 </template>
