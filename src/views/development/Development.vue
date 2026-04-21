@@ -27,7 +27,7 @@ const { loading, error, success } = storeToRefs(developmentStore)
 const { fetchDevelopment, deleteDevelopment } = developmentStore
 
 const developmentApplicantStore = useDevelopmentApplicantStore()
-const { createDevelopmentApplicant } = developmentApplicantStore
+const { createDevelopmentApplicant, approveDevelopmentApplicant, rejectDevelopmentApplicant } = developmentApplicantStore
 
 const familyMemberStore = useFamilyMemberStore()
 const { familyMembers } = storeToRefs(familyMemberStore)
@@ -55,6 +55,16 @@ async function handleDelete() {
 
 async function handleSubmit() {
     await createDevelopmentApplicant(developmentApplicant.value)
+}
+
+async function handleApprove(applicantId) {
+    await approveDevelopmentApplicant(applicantId)
+    await fetchData()
+}
+
+async function handleReject(applicantId) {
+    await rejectDevelopmentApplicant(applicantId)
+    await fetchData()
 }
 
 const handleSelectApplicant = (user) => {
@@ -312,10 +322,14 @@ onMounted(fetchData)
                             <div class="flex items-center gap-3 justify-end shrink-0"
                                 v-if="applicant.status === 'pending' && can('development-edit') && can('development-applicant-edit')">
                                 <button
+                                    @click="handleReject(applicant.id)"
+                                    :disabled="loading"
                                     class="flex items-center w-[120px] justify-center shrink-0 gap-[10px] rounded-2xl py-4 px-6 bg-desa-red/10">
                                     <span class="font-medium text-desa-red">Tolak</span>
                                 </button>
                                 <button
+                                    @click="handleApprove(applicant.id)"
+                                    :disabled="loading"
                                     class="flex items-center w-[120px] justify-center shrink-0 gap-[10px] rounded-2xl py-4 px-6 bg-desa-dark-green">
                                     <span class="font-medium text-white">Setuju</span>
                                 </button>
