@@ -17,6 +17,21 @@ export const useDevelopmentApplicantStore = defineStore("development-applicant",
         success: null,
     }),
     actions: {
+        async createDevelopmentApplicant(payload) {
+            this.loading = true
+
+            try {
+                const response = await axiosInstance.post("/development-applicant", payload)
+
+                this.success = response.data.message
+
+                router.push({ name: 'development' })
+            } catch (error) {
+                this.error = handleError(error)
+            } finally {
+                this.loading = false
+            }
+        },
         async approveDevelopmentApplicant(id) {
             this.loading = true
 

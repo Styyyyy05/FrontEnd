@@ -21,7 +21,7 @@ export const useProfileStore = defineStore("profile", {
             this.loading = true
 
             try {
-                const response = await axiosInstance.get(`/profile`)
+                const response = await axiosInstance.get('/profile')
 
                 this.profile = response.data.data
             } catch (error) {
@@ -45,6 +45,25 @@ export const useProfileStore = defineStore("profile", {
             } finally {
                 this.loading = false
 
+            }
+        },
+
+        async updateProfile(payload) {
+            this.loading = true
+
+            try {
+                const response = await axiosInstance.post("/profile", {
+                    ...payload,
+                    _method: 'PUT'
+                })
+
+                this.success = response.data.message
+
+                router.push({ name: 'profile' })
+            } catch (error) {
+                this.error = handleError(error)
+            } finally {
+                this.loading = false
             }
         }
     }

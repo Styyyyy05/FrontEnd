@@ -18,6 +18,7 @@ const eventParticipant = ref({
 })
 
 const showSuccessModal = ref(false)
+const successMessage = ref('Pembayaran Berhasil')
 
 const eventStore = useEventStore();
 const { loading, error, success } = storeToRefs(eventStore)
@@ -39,23 +40,26 @@ const fetchData = async () => {
 const handleSubmitEventParticipant = async () => {
     const response = await createEventParticipant(eventParticipant.value)
 
+    if (!response || !response.snap_token) return
+
     window.snap.pay(response.snap_token, {
-        onSuccess: function (result) {
-            /* You may add your own implementation here */
+        onSuccess: function () {
             showSuccessModal.value = true
+            successMessage.value = 'Pembayaran Berhasil'
             eventParticipant.value.quantity = 0
             eventParticipant.value.total_price = 0
         },
-        onPending: function (result) {
-            /* You may add your own implementation here */
-            console.log(result);
+        onPending: function () {
+            showSuccessModal.value = true
+            successMessage.value = 'Pembayaran Sedang Diproses'
+            eventParticipant.value.quantity = 0
+            eventParticipant.value.total_price = 0
         },
-        onError: function (result) {
-            /* You may add your own implementation here */
-            console.log(result);
+        onError: function () {
+            alert('Pembayaran gagal, silakan coba lagi.')
         },
         onClose: function () {
-            /* You may add your own implementation here */
+            alert('Pembayaran belum selesai. Silakan selesaikan pembayaran Anda.')
         }
     });
 }
@@ -298,11 +302,9 @@ onMounted(fetchData)
     <div id="modal" class="fixed inset-0 flex items-center justify-center bg-[#001B1ACC] z-50" v-if="showSuccessModal">
         <div class="bg-white rounded-2xl p-4 w-[320px] flex flex-col items-center gap-6">
             <div class="flex flex-col items-center gap-4">
-                <h3 class="font-semibold text-2xl leading-8 text-desa-secondary">Pembayaran Berhasil</h3>
+                <h3 class="font-semibold text-2xl leading-8 text-desa-secondary">{{ successMessage }}</h3>
                 <p class="font-medium text-base leading-5 text-desa-secondary">Terima kasih telah berpartisipasi
-                    dalam
-                    acara
-                    ini.</p>
+                    dalam acara ini.</p>
             </div>
             <button type="button"
                 class="bg-desa-dark-green rounded-2xl py-[18px] flex justify-center items-center text-center text-white font-medium leading-5 w-full"

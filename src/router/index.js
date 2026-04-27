@@ -19,6 +19,7 @@ import HeadOfFamilyCreate from '@/views/head-of-family/HeadOfFamilyCreate.vue'
 import Login from '@/views/Login.vue'
 import Profile from '@/views/profile/Profile.vue'
 import ProfileCreate from '@/views/profile/ProfileCreate.vue'
+import ProfileEdit from '@/views/profile/Profileedit.vue'
 import SocialAssistanceRecipient from '@/views/social-assistance-recipient/SocialAssistanceRecipient.vue'
 import SocialAssistanceRecipients from '@/views/social-assistance-recipient/SocialAssistanceRecipients.vue'
 import SocialAssistance from '@/views/social-assistance/SocialAssistance.vue'
@@ -171,6 +172,12 @@ const router = createRouter({
                   name: 'create-profile',
                   component: ProfileCreate,
                   meta: { requiresAuth: true, permission: 'profile-create' },
+                },
+                {
+                  path: 'profile/edit',
+                  name: 'edit-profile',
+                  component: ProfileEdit,
+                  meta: { requiresAuth: true, permission: 'profile-edit' },
                 },
       ],
     },
